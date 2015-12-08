@@ -1,0 +1,30 @@
+<h1 class="title">{{title}}</h1>
+<form class=addPlayer action="/addgame">
+    <button>Add New Game</button>
+</form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Game</th>
+            <th scope="col">Winner</th>
+            <th scope="col">Loser</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each games}}
+        <form method="POST">
+            <tr>
+                <td>
+                    <input type=hidden name="gameName" value="{{gameName}}" />
+                    {{gameName}}
+                </td>
+                <td>{{winner.teamName}}</td>
+                <td>{{loser.teamName}}</td>
+            </tr>
+        </form>
+        {{/each}}
+    </tbody>
+</table>

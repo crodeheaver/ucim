@@ -1,0 +1,22 @@
+<h1 class="title">{{title}}</h1>
+
+<form method="POST" action="/addgame">
+    <input name="gameName" type="hidden" value="Game {{numGames}}" />
+    <label>Winner
+        <select name="winner">
+            {{#each teams}}
+                <option value="{{_id}}">{{teamName}}</option>
+            {{/each}}
+        </select>
+    </label>
+
+    <label>Loser
+        <select name="loser">
+            {{#each teams}}
+                <option value="{{_id}}">{{teamName}}</option>
+            {{/each}}
+        </select>
+    </label>
+
+    <button type="submit">Add</button>
+</form>
