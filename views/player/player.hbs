@@ -2,8 +2,7 @@
 <form class=addPlayer action="/addPlayer">
     <button>Add New Player</button>
 </form>
-
-
+{{#if players}}
 <table>
     <thead>
         <tr>
@@ -28,3 +27,8 @@
         {{/each}}
     </tbody>
 </table>
+
+{{else}}
+<h3>There are no players in the database</h3>
+{{/if}}
+

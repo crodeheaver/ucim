@@ -3,7 +3,9 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-
+var hbs = require('hbs');
+var HandlebarsIntl = require('handlebars-intl');
+HandlebarsIntl.registerWith(hbs);
 
 var routes = require('./routes/index');
 var app = express();
@@ -33,6 +35,7 @@ db.on('error', function(err) {
 db.once('open', function() {
     console.log('connected.');
 });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

@@ -8,7 +8,8 @@ var teamSchema = new Schema({
   teamName: String,
   wins: Number,
   losses: Number,
-  members: [playerSchema]
+  members: [playerSchema],
+  section: String
 });
 
 

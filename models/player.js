@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 // create a schema
 var playerSchema = new Schema({
   firstName: String,
-  lastName: String
+  lastName: String,
+  sex: String
 });
 
 playerSchema.index({ firstName: 1, lastName: 1}, { unique: true, sparse: true});

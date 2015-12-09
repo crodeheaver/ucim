@@ -7,12 +7,16 @@ var teamSchema = require('./team').schema;
 var gameSchema = new Schema({
   gameName: String,
   winner: teamSchema,
-  loser: teamSchema
+  winnerPoints: Number,
+  loser: teamSchema,
+  loserPoints: Number,
+  date:Date,
+  section: String
 });
 
 // the schema is useless so far
 // we need to create a model using it
-var Player = mongoose.model('Game', gameSchema);
+var Game = mongoose.model('Game', gameSchema);
 
 // make this available to our users in our Node applications
-module.exports = Player;
+module.exports = Game;
