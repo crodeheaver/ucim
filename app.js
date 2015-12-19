@@ -1,49 +1,39 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var hbs = require('hbs');
-var HandlebarsIntl = require('handlebars-intl');
-HandlebarsIntl.registerWith(hbs);
-
-var routes = require('./routes/index');
-var app = express();
-
-// parse application/json
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
-
-app.set('dbhost', '127.0.0.1')
-app.set('dbname', 'ucim')
 
 
-app.set('port', process.env.PORT)
-app.set('ip', process.env.IP)
+var express = require('express'),
+  config = require('./config/config'),
+  glob = require('glob'),
+  mongoose = require('mongoose'),
+  session = require('express-session'),
+  MongoStore = require('connect-mongo')(session);
+
+mongoose.connect(config.db);
 
 
 
-mongoose.connect('mongodb://' + app.get('dbhost') + '/' + app.get('dbname'));
-
+mongoose.Promise = global.Promise;
 var db = mongoose.connection;
-
-db.on('error', function(err) {
-    console.log('connection error', err);
-});
-db.once('open', function() {
-    console.log('connected.');
+db.on('error', function () {
+  throw new Error('unable to connect to database at ' + config.db);
 });
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+var models = glob.sync(config.root + '/app/models/*.js');
+models.forEach(function (model) {
+  require(model);
+});
+var app = express();
 
-app.use(express.static('public'))
 
-app.use(routes.setup(app, express, mongoose))
+app.use(session({
+  cookie: {maxAge:1000*60*2},
+  secret: "3kx9cmdcm43123mvcwkd0493ck3985",
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 
-var server = app.listen(app.get('port'), app.get('ip'), function () {
-  console.log('UCIM is listening on https://' + app.get('ip') +":" + app.get('port'))
-})
+require('./config/express')(app, config);
+
+
+app.listen(config.port, function () {
+  console.log('Express server listening on port ' + config.port);
+});
+

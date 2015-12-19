@@ -1,0 +1,24 @@
+<h1 class="title">{{title}}</h1>
+<form method="POST" action="addPlayer">
+    <input name="teamId" type='hidden' value="{{team._id}}" />
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Add</th>
+                <th scope="col">First Name</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each players}}
+            <tr>
+                <td>
+                    <input type="checkbox" name="players[]" value="{{_id}}" />
+                </td>
+                <td>{{firstName}} {{lastName}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <button type="submit">Add</button>
+</form>

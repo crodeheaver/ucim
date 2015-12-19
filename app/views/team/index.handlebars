@@ -1,0 +1,30 @@
+<h1 class="title">{{title}}</h1>
+<form class=addPlayer action="/team/addTeam">
+    <button>Add New Team</button>
+</form>
+
+{{#each sections}}
+<h3>{{_id}}</h3>
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Team</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each teams}}
+        <form method="GET" action="/team/editTeam">
+            <tr>
+                <td>{{Name}}</td>
+                <td>
+                    <input type=hidden name="_id" value="{{_id}}" />
+                    <button class="button--xsm">edit</button>
+                </td>
+            </tr>
+        </form>
+        {{/each}}
+    </tbody>
+</table>
+{{/each}}
