@@ -1,6 +1,9 @@
 <h1 class="title">{{title}}</h1>
-<form class=addPlayer action="/player/addPlayer">
+<form class="addPlayer" action="/player/addPlayer">
     <button>Add New Player</button>
+</form>
+<form class="addPlayer" action="/player/uploadxlsx">
+    <button>Add from File</button>
 </form>
 {{#if players}}
 <table>

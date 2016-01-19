@@ -1,7 +1,10 @@
 var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
-    Player = mongoose.model('Player');
+    Player = mongoose.model('Player'),
+    multer  = require('multer'),
+    upload = multer({ dest: 'uploads/' }),
+    xlsx = require('node-xlsx');
 
 module.exports = function(app) {
     app.use('/player', router);
@@ -54,3 +57,26 @@ router.route('/addPlayer')
                 next(err);
             });
     });
+
+router.get('/uploadxlsx',function (req, res, next){
+    res.render('player/add_by_file', {
+                    title: 'Players'
+                });
+})
+router.post('/uploadxlsx',multer({ dest: './public/uploads/'}).single('upl'),function(req, res, next){
+    var list = xlsx.parse(req.file.destination + req.file.filename)[0].data
+    
+    for(var i = 0; i < list.length; i++)
+    {
+        console.log(list[i][0])
+        new Player({
+                firstName: list[i][1],
+                lastName: list[i][0],
+                sex: list[i][2]
+            }).save()
+            .catch(function(err) {
+                next(err);
+            });
+    }
+    res.redirect('/player')
+})
