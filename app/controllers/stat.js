@@ -31,7 +31,7 @@ router.route('/')
             })
             .then(function(teams) {
                 res.render('stat/index', {
-                    title: 'Teams',
+                    title: 'Stats',
                     coed: teams[0],
                     guys: teams[1],
                     girls: teams[2]
@@ -69,7 +69,6 @@ router.route("/details")
             totalPointsAgainst += game.winnerPoints
           }
         })
-        console.log(games)
         res.render('stat/details', {
           title: 'Details',
           team: team,
