@@ -4,13 +4,14 @@ var mongoose = require('mongoose')
 var Player = mongoose.model('Player')
 var multer = require('multer')
 var xlsx = require('node-xlsx')
+var isLoggedIn = require('../../config/auth')
 
 module.exports = function (app) {
   app.use('/player', router)
 }
 
 router.route('/')
-  .get(function (req, res, next) {
+  .get(isLoggedIn, function (req, res, next) {
     var promise = Player.find().sort('lastName').exec()
 
     promise.then(function (players) {
@@ -23,7 +24,7 @@ router.route('/')
         next(err)
       })
   })
-  .post(function (req, res, next) {
+  .post(isLoggedIn, function (req, res, next) {
     Player.remove({
       _id: req.body._id
     })
@@ -36,12 +37,12 @@ router.route('/')
   })
 
 router.route('/addPlayer')
-  .get(function (req, res, next) {
+  .get(isLoggedIn, function (req, res, next) {
     res.render('player/add_player', {
       title: 'New Player'
     })
   })
-  .post(function (req, res, next) {
+  .post(isLoggedIn, function (req, res, next) {
     new Player({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -55,12 +56,12 @@ router.route('/addPlayer')
       })
   })
 
-router.get('/uploadxlsx', function (req, res, next) {
+router.get('/uploadxlsx', isLoggedIn, function (req, res, next) {
   res.render('player/add_by_file', {
     title: 'Players'
   })
 })
-router.post('/uploadxlsx', multer({dest: './public/uploads/'}).single('upl'), function (req, res, next) {
+router.post('/uploadxlsx', isLoggedIn, multer({dest: './public/uploads/'}).single('upl'), function (req, res, next) {
   var list = xlsx.parse(req.file.destination + req.file.filename)[0].data
 
   for (var i = 0; i < list.length; i++) {

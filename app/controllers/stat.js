@@ -1,49 +1,50 @@
-var express = require('express'),
-    router = express.Router(),
-    mongoose = require('mongoose'),
-    Game = mongoose.model('Game'),
-    Team = mongoose.model('Team');
+var express = require('express')
+var router = express.Router()
+var mongoose = require('mongoose')
+var Game = mongoose.model('Game')
+var Team = mongoose.model('Team')
+var isLoggedIn = require('../../config/auth')
 
-module.exports = function(app) {
-    app.use('/stat', router);
-};
+module.exports = function (app) {
+  app.use('/stat', router)
+}
 
 router.route('/')
-    .get(function(req, res, next) {
-        Team.find({ section: 'Coed'})
-            .sort({ wins: '-1'})
-            .exec()
-            .then(function(coed) {
-                    return Team.find({ section: 'Guys' })
-                    .sort({ wins: '-1' })
-                    .exec()
-                    .then(function(guys) {
-                        return [coed, guys]
-                    })
-            })
-            .then(function(teams) {
-                return Team.find({ section: 'Girls' })
-                .sort({ wins: '-1' })
-                .exec()
-                .then(function(girls) {
-                    return [teams[0], teams[1], girls]
-                })
-            })
-            .then(function(teams) {
-                res.render('stat/index', {
-                    title: 'Stats',
-                    coed: teams[0],
-                    guys: teams[1],
-                    girls: teams[2]
-                })
-            })
-            .catch(function(err) {
-                next(err)
-            })
-    })
-    
-router.route("/details")
-.get(function (req, res, next) {
+  .get(isLoggedIn, function (req, res, next) {
+    Team.find({ section: 'Coed'})
+      .sort({ wins: '-1'})
+      .exec()
+      .then(function (coed) {
+        return Team.find({ section: 'Guys' })
+          .sort({ wins: '-1' })
+          .exec()
+          .then(function (guys) {
+            return [coed, guys]
+          })
+      })
+      .then(function (teams) {
+        return Team.find({ section: 'Girls' })
+          .sort({ wins: '-1' })
+          .exec()
+          .then(function (girls) {
+            return [teams[0], teams[1], girls]
+          })
+      })
+      .then(function (teams) {
+        res.render('stat/index', {
+          title: 'Stats',
+          coed: teams[0],
+          guys: teams[1],
+          girls: teams[2]
+        })
+      })
+      .catch(function (err) {
+        next(err)
+      })
+  })
+
+router.route('/details')
+  .get(isLoggedIn, function (req, res, next) {
     Team.findOne({
       _id: req.query._id
     }).exec(function (err, team) {
@@ -56,7 +57,7 @@ router.route("/details")
           'loser': team._id
         }]
       }).populate('winner')
-      .populate('loser').exec(function (err, games) {
+        .populate('loser').exec(function (err, games) {
         if (err) throw err
         var totalPointsFor = 0
         var totalPointsAgainst = 0
