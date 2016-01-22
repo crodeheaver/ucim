@@ -15,7 +15,8 @@ router.route('/register')
   .post(function (req, res) {
     Key.findOne({key_name: 'regcode'}).exec()
       .then(function (code) {
-        if (code === req.body.regcode) {
+        console.log(code)
+        if (code.key_code === req.body.regcode) {
           Account.register(new Account({ username: req.body.username }), req.body.password, function (err, account) {
             if (err) {
               return res.render('auth/register', {info: 'Sorry. That username already exists. Try again.'})

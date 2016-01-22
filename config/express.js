@@ -69,7 +69,7 @@ module.exports = function (app, config) {
 
   new Key({
     key_name: 'regcode',
-    key_code: ''
+    key_code: '04UGLABWWT'
   }).save()
     .then(function () {
       console.log('saved')
