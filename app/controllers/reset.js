@@ -13,7 +13,8 @@ module.exports = function (app) {
 router.route('/')
   .get(isLoggedIn, function (req, res, next) {
     res.render('reset', {
-      title: 'Warning'
+      title: 'Warning',
+      user: req.user
     })
   })
   .post(isLoggedIn, function (req, res, next) {

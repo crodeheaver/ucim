@@ -3,7 +3,7 @@ var glob = require('glob')
 
 // var favicon = require('serve-favicon')
 var logger = require('morgan')
-var cookieParser = require('cookie-parser')
+// var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var compress = require('compression')
 var methodOverride = require('method-override')
@@ -39,13 +39,13 @@ module.exports = function (app, config) {
   app.use(bodyParser.urlencoded({
     extended: true
   }))
-  app.use(cookieParser())
+  // app.use(cookieParser())
   app.use(compress())
   app.use(express.static(config.root + '/public'))
   app.use(methodOverride())
 
   app.use(session({
-    cookie: {maxAge: 1000 * 60 * 2},
+    cookie: {maxAge: 1000 * 60 * 120},
     secret: '3kx9cmdcm43123mvcwkd0493ck3985',
     resave: true,
     saveUninitialized: true,
@@ -64,6 +64,19 @@ module.exports = function (app, config) {
   passport.use(new LocalStrategy(Account.authenticate()))
   passport.serializeUser(Account.serializeUser())
   passport.deserializeUser(Account.deserializeUser())
+
+  /*var Key = mongoose.model('Key')
+
+  new Key({
+    key_name: 'regcode',
+    key_code: ''
+  }).save()
+    .then(function () {
+      console.log('saved')
+    })
+    .catch(function (err) {
+      console.log(err)
+    })*/
 
   app.use(function (req, res, next) {
     var err = new Error('Not Found')

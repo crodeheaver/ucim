@@ -1,42 +1,31 @@
 <!doctype html>
 <html>
-<head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; }
-    </style>
-</head>
 <body>
-<div class="container">
+<div container>
+  <div row>
+    <div column="12">
+      Login
+    </div>
+  </div>
+  <div row>
+    <div column="4">
+      <span>
+        <form method="post">
+            <div>
+                <label>Email</label>
+                <input type="text" name="username">
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password">
+            </div>
 
-<div class="col-sm-6 col-sm-offset-3">
+            <button type="submit">Login</button>
+        </form>
+      </span>
+    </div>
 
-    <h1><span class="fa fa-sign-in"></span> Login</h1>
-
-
-    <!-- LOGIN FORM -->
-    <form method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="username">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
-
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
-    </form>
-
-    <hr>
-
-    <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go <a href="/">home</a>.</p>
-
-</div>
-
+  </div>
 </div>
 </body>
 </html>

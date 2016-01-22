@@ -14,15 +14,22 @@
   <header container class="siteHeader">
     <div row>
       <h1 column=4 class="logo">UCIM</h1>
-
       <nav column=8 class="nav">
+        {{#if user}}
         <ul>
           <li><a href="/player">Players</a></li>
           <li><a href="/team">Teams</a></li>
           <li><a href="/game">Games</a></li>
           <li><a href="/stat">Stats</a></li>
           <li><a href="/reset">Reset</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
         </ul>
+          {{else}}
+          <ul>
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/register">Register</a></li>
+          </ul>
+        {{/if}}
       </nav>
     </div>
   </header>
@@ -30,7 +37,7 @@
   <main container>
     {{{body}}}
   </main>
-  
+
   <script src="/components/jquery/dist/jquery.min.js"></script>
   <script src="/components/livereload-js/dist/livereload.js"></script>
 

@@ -17,7 +17,8 @@ router.route('/')
     promise.then(function (players) {
       res.render('player/index', {
         title: 'Players',
-        players: players
+        players: players,
+        user: req.user
       })
     })
       .catch(function (err) {
@@ -39,7 +40,8 @@ router.route('/')
 router.route('/addPlayer')
   .get(isLoggedIn, function (req, res, next) {
     res.render('player/add_player', {
-      title: 'New Player'
+      title: 'New Player',
+      user: req.user
     })
   })
   .post(isLoggedIn, function (req, res, next) {
@@ -58,7 +60,8 @@ router.route('/addPlayer')
 
 router.get('/uploadxlsx', isLoggedIn, function (req, res, next) {
   res.render('player/add_by_file', {
-    title: 'Players'
+    title: 'Players',
+    user: req.user
   })
 })
 router.post('/uploadxlsx', isLoggedIn, multer({dest: './public/uploads/'}).single('upl'), function (req, res, next) {

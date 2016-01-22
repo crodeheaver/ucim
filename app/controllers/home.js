@@ -7,6 +7,7 @@ module.exports = function (app) {
 
 router.get('/', function (req, res, next) {
   res.render('index', {
-    title: 'Union College Intermurals Manager'
+    title: 'Union College Intermurals Manager',
+    user: req.user
   })
 })

@@ -17,7 +17,8 @@ router.route('/')
       .then(function (sections) {
         res.render('team/index', {
           title: 'Teams',
-          sections: sections
+          sections: sections,
+          user: req.user
         })
       })
       .catch(function (err) {
@@ -28,7 +29,8 @@ router.route('/')
 router.route('/addTeam')
   .get(isLoggedIn, function (req, res, next) {
     res.render('team/add_team', {
-      title: 'New Team'
+      title: 'New Team',
+      user: req.user
     })
   })
   .post(isLoggedIn, function (req, res, next) {
@@ -56,7 +58,8 @@ router.route('/editTeam')
         res.render('team/edit_team', {
           title: 'Edit Team',
           team: team,
-          players: team.members
+          players: team.members,
+          user: req.user
         })
       })
       .catch(function (err) {
@@ -97,7 +100,8 @@ router.route('/addPlayer')
             res.render('team/add_player', {
               title: 'Edit Team',
               team: team,
-              players: players
+              players: players,
+              user: req.user
             })
           })
       })

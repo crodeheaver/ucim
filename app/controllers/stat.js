@@ -35,7 +35,8 @@ router.route('/')
           title: 'Stats',
           coed: teams[0],
           guys: teams[1],
-          girls: teams[2]
+          girls: teams[2],
+          user: req.user
         })
       })
       .catch(function (err) {
@@ -75,7 +76,8 @@ router.route('/details')
           team: team,
           games: games,
           totalPointsFor: totalPointsFor,
-          totalPointsAgainst: totalPointsAgainst
+          totalPointsAgainst: totalPointsAgainst,
+          user: req.user
         })
       })
     })

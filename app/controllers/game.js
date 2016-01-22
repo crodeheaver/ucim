@@ -32,7 +32,8 @@ router.route('/')
       .then(function (sections) {
         res.render('game/index', {
           title: 'Games',
-          sections: sections
+          sections: sections,
+          user: req.user
         })
       })
       .catch(function (err) {
@@ -97,7 +98,8 @@ router.route('/addGame')
           numGames: numGames,
           teams: results[1],
           section: req.query.section,
-          date: date
+          date: date,
+          user: req.user
         })
       })
       .catch(function (err) {
