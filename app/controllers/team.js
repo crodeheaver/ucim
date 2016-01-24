@@ -53,7 +53,7 @@ router.route('/editTeam')
   .get(isLoggedIn, function (req, res, next) {
     Team.findOne({
       _id: req.query._id
-    }).populate('members').exec()
+    }).populate('members', '_id firstName lastName sex', null, { sort: { 'lastName': 1 } }).exec()
       .then(function (team) {
         res.render('team/edit_team', {
           title: 'Edit Team',
