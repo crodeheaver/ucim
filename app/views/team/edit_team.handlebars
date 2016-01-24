@@ -1,6 +1,7 @@
 <h1 class="title">{{title}}</h1>
 <form class=addPlayer action="/team/addPlayer" method="GET">
     <input name="_id" type='hidden' value="{{team._id}}" />
+    <input name="section" type='hidden' value="{{team.section}}" />
     <button>Add Team Players</button>
 </form>
 <form method="POST">

@@ -87,6 +87,12 @@ router.route('/editTeam')
 
 router.route('/addPlayer')
   .get(isLoggedIn, function (req, res, next) {
+    var sex
+    if (req.query.section === 'Guys') {
+      sex = 'Male'
+    } else {
+      sex = 'Female'
+    }
     Team.findOne({
       _id: req.query._id
     }).populate('members').exec()
@@ -94,8 +100,11 @@ router.route('/addPlayer')
         return Player.find({
           _id: {
             $nin: team.members
-          }
-        }).exec()
+          },
+          sex: sex
+        })
+          .sort('lastName')
+          .exec()
           .then(function (players) {
             res.render('team/add_player', {
               title: 'Edit Team',

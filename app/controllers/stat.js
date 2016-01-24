@@ -11,7 +11,7 @@ module.exports = function (app) {
 
 router.route('/')
   .get(isLoggedIn, function (req, res, next) {
-    Team.find({ section: 'Coed'})
+    Team.find({ section: 'Coed' })
       .sort({ wins: '-1'})
       .exec()
       .then(function (coed) {
