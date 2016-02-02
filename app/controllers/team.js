@@ -12,7 +12,7 @@ module.exports = function (app) {
 
 router.route('/')
   .get(isLoggedIn, function (req, res, next) {
-    Team.aggregate([{$sort: { Name: 1}}, { $group: { _id: '$section', teams: { $push: '$$ROOT' } } }])
+    Team.aggregate([{ $sort: { Name: 1} }, { $group: { _id: '$section', teams: { $push: '$$ROOT' } } }])
       .exec()
       .then(function (sections) {
         res.render('team/index', {

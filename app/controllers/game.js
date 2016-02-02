@@ -45,6 +45,7 @@ router.route('/')
       _id: req.body.gameId
     }).exec()
       .then(function (game) {
+        console.log(game)
         Team.findOne({
           _id: req.body.winnerId
         })
@@ -125,6 +126,7 @@ router.route('/addGame')
             team.losses++
             team.save()
           })
+        console.log(req.body.time)
         new Game({
           gameName: req.body.gameName,
           winner: req.body.winner,

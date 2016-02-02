@@ -21,6 +21,7 @@
     <tbody>
         {{#each games}}
         <form method="POST">
+          <input type="hidden" name="gameId" value="{{_id}}"/>
             <tr>
                 <td><button class="button--xsm">delete</button></td>
                 <td>
