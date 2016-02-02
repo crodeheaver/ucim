@@ -1,4 +1,6 @@
-<h1 class="title">{{title}}</h1> {{#if coed}}
+<h1 class="title">{{title}}</h1> 
+{{#each sections}}
+<h3>{{_id}}</h3>
 <table>
     <thead>
         <tr>
@@ -10,34 +12,7 @@
     </thead>
 
     <tbody>
-        {{#each coed}}
-        <tr>
-            <td>{{Name}}</td>
-            <td>{{wins}}</td>
-            <td>{{losses}}</td>
-            <form class=addPlayer action="/statdetails">
-                <td>
-                    <input type=hidden name="_id" value="{{_id}}" />
-                    <button class="button--xsm">details</button>
-                </td>
-            </form>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-{{/if}} {{#if guys}}
-<table>
-    <thead>
-        <tr>
-            <th scope="col">Team</th>
-            <th scope="col">Wins</th>
-            <th scope="col">Losses</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        {{#each guys}}
+        {{#each teams}}
         <tr>
             <td>{{Name}}</td>
             <td>{{wins}}</td>
@@ -52,31 +27,4 @@
         {{/each}}
     </tbody>
 </table>
-{{/if}} {{#if girls}}
-<table>
-    <thead>
-        <tr>
-            <th scope="col">Team</th>
-            <th scope="col">Wins</th>
-            <th scope="col">Losses</th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        {{#each girls}}
-        <tr>
-            <td>{{Name}}</td>
-            <td>{{wins}}</td>
-            <td>{{losses}}</td>
-            <form class=addPlayer action="/statdetails">
-                <td>
-                    <input type=hidden name="_id" value="{{_id}}" />
-                    <button class="button--xsm">details</button>
-                </td>
-            </form>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
-{{/if}}
+{{/each}}

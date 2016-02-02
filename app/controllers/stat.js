@@ -11,31 +11,12 @@ module.exports = function (app) {
 
 router.route('/')
   .get(isLoggedIn, function (req, res, next) {
-    Team.find({ section: 'Coed' })
-      .sort({ wins: '-1'})
+    Team.aggregate([{$sort: { wins: -1}}, { $group: { _id: '$section', teams: { $push: '$$ROOT' } } }])
       .exec()
-      .then(function (coed) {
-        return Team.find({ section: 'Guys' })
-          .sort({ wins: '-1' })
-          .exec()
-          .then(function (guys) {
-            return [coed, guys]
-          })
-      })
-      .then(function (teams) {
-        return Team.find({ section: 'Girls' })
-          .sort({ wins: '-1' })
-          .exec()
-          .then(function (girls) {
-            return [teams[0], teams[1], girls]
-          })
-      })
-      .then(function (teams) {
+      .then(function (sections) {
         res.render('stat/index', {
           title: 'Stats',
-          coed: teams[0],
-          guys: teams[1],
-          girls: teams[2],
+          sections: sections,
           user: req.user
         })
       })
@@ -62,8 +43,9 @@ router.route('/details')
         if (err) throw err
         var totalPointsFor = 0
         var totalPointsAgainst = 0
+        console.log(games)
         games.map(function (game) {
-          if (game.winner.teamName === team.teamName) {
+          if (game.winner.Name === team.Name) {
             totalPointsFor += game.winnerPoints
             totalPointsAgainst += game.loserPoints
           } else {

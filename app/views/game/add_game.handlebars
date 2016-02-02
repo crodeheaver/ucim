@@ -6,7 +6,10 @@
         <input type="date" name="date" value="{{formatDate date day="numeric" month="long" year="numeric"}}">
     </label>
     <label>Time Slot
-        <input type="text" name="time" value="{{formatTime date hour="numeric" minute="numeric"}}">
+    <select name="time">
+        <option value="17:30">5:30</option>
+        <option value="18:30">6:30</option>
+    </select>
     </label>
     <label>Winner
         <select name="winner">
