@@ -41,34 +41,27 @@ router.route('/')
       })
   })
   .post(isLoggedIn, function (req, res, next) {
-    Game.findOne({
+    var winner = mongoose.Types.ObjectId(req.body.winnerId)
+    var loser = mongoose.Types.ObjectId(req.body.loserId)
+    Game.remove({
       _id: req.body.gameId
-    }).exec()
-      .then(function (game) {
-        console.log(game)
-        Team.findOne({
-          _id: req.body.winnerId
-        })
-          .then(function (doc) {
-            doc.wins--
-            doc.save()
-          })
-
-        Team.findOne({
-          _id: req.body.loserId
-        })
-          .then(function (doc) {
-            doc.losses--
-            doc.save()
-          })
-
-        Game.remove({
-          _id: req.body.gameId
-        })
-          .then(function () {
-            res.redirect('/game')
-          })
-          .catch(function (err) { next(err) })
+    })
+      .exec()
+      .then(function () {
+        return Game.aggregate([
+          { $match: { $or: [ {'winner': winner }, { 'loser': winner },
+            {'winner': loser }, { 'loser': loser }]}},
+          { $group: {_id: null,
+              winLoseCount: { '$sum': { '$cond': [ { $eq: [ '$loser', winner ] }, 1, 0 ] } },
+              winWinCount: { '$sum': { '$cond': [ { $eq: [ '$winner', winner ] }, 1, 0 ] } },
+              loseLoseCount: { '$sum': { '$cond': [ { $eq: [ '$loser', loser ] }, 1, 0 ] } },
+          loseWinCount: { '$sum': { '$cond': [ { $eq: [ '$winner', loser ] }, 1, 0 ] } }}}])
+          .exec()
+      })
+      .then(function (results) {
+        Team.update({_id: loser}, {wins: results[0].loseWinCount, losses: results[0].loseLoseCount}, {}).exec()
+        Team.update({_id: winner}, {wins: results[0].winWinCount, losses: results[0].winLoseCount}, {}).exec()
+        res.redirect('/game')
       })
       .catch(function (err) {
         next(err)
@@ -108,40 +101,33 @@ router.route('/addGame')
       })
   })
   .post(isLoggedIn, function (req, res, next) {
-    Team.find({
-      _id: {
-        $in: [req.body.winner, req.body.loser]
-      }
-    })
-      .exec()
-      .then(function (teams) {
-        Team.findOne({ _id: req.body.winner }).exec()
-          .then(function (team) {
-            team.wins++
-            return team.save()
-          }).then(function () {
-          return Team.findOne({ _id: req.body.loser }).exec()
-        })
-          .then(function (team) {
-            team.losses++
-            team.save()
-          })
-        console.log(req.body.time)
-        new Game({
-          gameName: req.body.gameName,
-          winner: req.body.winner,
-          winnerPoints: req.body.winnerPoints,
-          loser: req.body.loser,
-          loserPoints: req.body.loserPoints,
-          section: req.body.section,
-          date: new Date(req.body.date + ' ' + req.body.time)
-        }).save()
-          .then(function () {
-            res.redirect('/game')
-          })
-          .catch(function (err) {
-            next(err)
-          })
+    var winner = mongoose.Types.ObjectId(req.body.winner)
+    var loser = mongoose.Types.ObjectId(req.body.loser)
+
+    new Game({
+      gameName: req.body.gameName,
+      winner: req.body.winner,
+      winnerPoints: req.body.winnerPoints,
+      loser: req.body.loser,
+      loserPoints: req.body.loserPoints,
+      section: req.body.section,
+      date: new Date(req.body.date + ' ' + req.body.time)
+    }).save()
+      .then(function () {
+        return Game.aggregate([
+          { $match: { $or: [ {'winner': winner }, { 'loser': winner },
+            {'winner': loser }, { 'loser': loser }]}},
+          { $group: {_id: null,
+              winLoseCount: { '$sum': { '$cond': [ { $eq: [ '$loser', winner ] }, 1, 0 ] } },
+              winWinCount: { '$sum': { '$cond': [ { $eq: [ '$winner', winner ] }, 1, 0 ] } },
+              loseLoseCount: { '$sum': { '$cond': [ { $eq: [ '$loser', loser ] }, 1, 0 ] } },
+          loseWinCount: { '$sum': { '$cond': [ { $eq: [ '$winner', loser ] }, 1, 0 ] } }}}])
+          .exec()
+      })
+      .then(function (results) {
+        Team.update({_id: loser}, {wins: results[0].loseWinCount, losses: results[0].loseLoseCount}, {}).exec()
+        Team.update({_id: winner}, {wins: results[0].winWinCount, losses: results[0].winLoseCount}, {}).exec()
+        res.redirect('/game')
       })
       .catch(function (err) {
         next(err)
