@@ -31,6 +31,29 @@ router.route('/register')
       })
   })
 
+router.route('/changePassword')
+  .get(function (req, res, next) {
+    res.render('auth/password_reset', { user: req.user })
+  })
+  .post(function (req, res, next) {
+    Account.findOne({ username: req.user.username })
+      .exec()
+      .then(function (user) {
+        user.setPassword(req.body.inputPassword, function (err, returnedUser, passwordErr) {
+          if (err) {
+            next(err)
+          }
+          user.save()
+            .then(function (saved) {
+              res.redirect('/auth/logout')
+            })
+            .catch(function (err) {
+              next(err)
+            })
+        })
+      })
+  })
+
 router.route('/login')
   .get(function (req, res, next) {
     res.render('auth/login', { user: req.user })
