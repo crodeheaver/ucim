@@ -30,7 +30,7 @@ router.route('/register')
         }
       })
       .catch(function (err) {
-        return res.render('auth/register', {info: 'Sorry. That username already exists. Try again.', err: err})
+        return res.json({info: 'Sorry. That username already exists. Try again.', err: err})
       })
   })
 
