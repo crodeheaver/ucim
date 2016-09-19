@@ -9,7 +9,7 @@ var config = {
       name: 'UCIM'
     },
     port: 8080,
-    db: 'mongodb://localhost/ucim-development'
+    db: process.env.mongo || 'mongodb://localhost/ucim-development'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'UCIM'
     },
     port: 3000,
-    db: 'mongodb://localhost/ucim-test'
+    db: process.env.mongo || 'mongodb://localhost/ucim-test'
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'UCIM'
     },
     port: 8080,
-    db: 'mongodb://localhost/ucim-production'
+    db: process.env.mongo || 'mongodb://localhost/ucim-production'
   }
 }
 

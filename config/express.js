@@ -46,7 +46,7 @@ module.exports = function (app, config) {
 
   app.use(session({
     cookie: {maxAge: 1000 * 60 * 120},
-    secret: '3kx9cmdcm43123mvcwkd0493ck3985',
+    secret: process.env.secret || '3kx9cmdcm43123mvcwkd0493ck3985',
     resave: true,
     saveUninitialized: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
