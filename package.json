@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node gulp"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
