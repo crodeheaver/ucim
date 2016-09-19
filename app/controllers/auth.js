@@ -29,6 +29,9 @@ router.route('/register')
           return res.render('auth/register', {info: 'Sorry. The registration code was incorrect. Try again.'})
         }
       })
+      .catch(function (err) {
+        return res.render('auth/register', {info: 'Sorry. That username already exists. Try again.', err: err})
+      })
   })
 
 router.route('/changePassword')
