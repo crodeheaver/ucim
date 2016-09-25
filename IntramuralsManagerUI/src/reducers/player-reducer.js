@@ -6,6 +6,7 @@ const initialState = {
 }
 
 const playerReducer = function (state = initialState, action) {
+  console.log(action)
   switch (action.type) {
 
     case types.GET_PLAYERS_SUCCESS:
