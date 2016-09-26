@@ -6,14 +6,13 @@ const initialState = {
 }
 
 const playerReducer = function (state = initialState, action) {
-  console.log(action)
   switch (action.type) {
 
     case types.GET_PLAYERS_SUCCESS:
       return Object.assign({}, state, { players: action.players })
-
+    case types.ADD_PLAYER_SUCCESS:
+      return Object.assign({}, state, { players: [...state.players, action.player] })
     case types.DELETE_PLAYER_SUCCESS:
-      // Use lodash to create a new user array without the user we want to remove
       const newPlayers = _.filter(state.players, player => player.id !== action.playerId)
       return Object.assign({}, state, { players: newPlayers })
     default:

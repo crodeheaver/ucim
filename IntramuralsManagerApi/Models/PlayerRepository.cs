@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using IntramuralsManagerApi.DAL;
+using IntramuralsManagerApi.Mongo;
 
 namespace IntramuralsManagerApi.Models
 {
@@ -18,17 +18,24 @@ namespace IntramuralsManagerApi.Models
 
         public void Add(Player player)
         {
+            player.Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString();
             _players.InsertOne(player);
             return;
         }
 
         public Player Find(string Id)
         {
-            return _players.Find(new BsonDocument("id", Id)).FirstOrDefault();
+            return _players.Find(new BsonDocument("_id", Id)).FirstOrDefault();
         }
 
         public IEnumerable<Player> GetAll()
         {
+            //var player = new Player();
+            //player.FirstName = "Nathan";
+            //player.LastName = "Bland";
+            //player.Sex = "Male";
+            //player.Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString();
+            //_players.InsertOne(player);
             return _players.Find(new BsonDocument()).ToList();
         }
 

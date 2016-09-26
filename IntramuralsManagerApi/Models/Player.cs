@@ -1,14 +1,16 @@
-﻿using MongoDB.Bson;
+﻿
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Options;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace IntramuralsManagerApi.Models
 {
+    [BsonIgnoreExtraElements]
     public class Player
     {
-        public ObjectId Id { get; set; }
+        [BsonId]
+        public String Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Sex { get; set; }

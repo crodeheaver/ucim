@@ -55,7 +55,7 @@ namespace IntramuralsManagerApi
 
             app.UseApplicationInsightsExceptionTelemetry();
 
-            app.UseCors(builder => builder.WithOrigins("*").AllowAnyHeader());
+            app.UseCors(builder => builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 
             var secretKey = "mysupersecret_secretkey!123";
             var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));

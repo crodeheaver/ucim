@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Microsoft.AspNetCore.Authorization;
-using IntramuralsManagerApi.DAL;
+using IntramuralsManagerApi.Mongo;
 
 namespace IntramuralsManagerApi.Models
 {

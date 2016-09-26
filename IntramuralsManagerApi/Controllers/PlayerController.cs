@@ -3,6 +3,7 @@ using IntramuralsManagerApi.Models;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Authorization;
 using MongoDB.Bson;
+using System;
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace IntramuralsManagerApi.Controllers
@@ -43,8 +44,9 @@ namespace IntramuralsManagerApi.Controllers
             Players.Add(player);
             return CreatedAtRoute("GetPlayer", new { id = player.Id }, player);
         }
+
         [HttpPut("{id}")]
-        public IActionResult Update(ObjectId id, [FromBody] Player player)
+        public IActionResult Update(String id, [FromBody] Player player)
         {
             if (player == null || player.Id != id)
             {

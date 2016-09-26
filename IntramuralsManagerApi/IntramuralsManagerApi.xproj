@@ -6,7 +6,7 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>f19ce2a3-5cf4-435c-a204-dc8e382de829</ProjectGuid>
+    <ProjectGuid>ae72ca5e-bbf9-4c1f-a01b-3bb5ff0691bd</ProjectGuid>
     <RootNamespace>IntramuralsManagerApi</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
