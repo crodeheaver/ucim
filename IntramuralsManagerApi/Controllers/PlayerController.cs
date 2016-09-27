@@ -20,7 +20,7 @@ namespace IntramuralsManagerApi.Controllers
         
         [HttpGet]
         public IEnumerable<Player> GetAll()
-        {
+        {  
             return Players.GetAll();
         }
         [HttpGet("{id}", Name = "GetPlayer")]

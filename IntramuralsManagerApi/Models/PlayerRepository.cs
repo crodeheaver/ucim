@@ -31,12 +31,12 @@ namespace IntramuralsManagerApi.Models
         public IEnumerable<Player> GetAll()
         {
             //var player = new Player();
-            //player.FirstName = "Nathan";
-            //player.LastName = "Bland";
-            //player.Sex = "Male";
+            //player.FirstName = "Lindsay";
+            //player.LastName = "Wood";
+            //player.Sex = "Female";
             //player.Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString();
             //_players.InsertOne(player);
-            return _players.Find(new BsonDocument()).ToList();
+            return _players.Find(new BsonDocument()).ToList(); ;
         }
 
         public bool Remove(string Id)
