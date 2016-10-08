@@ -14,6 +14,13 @@ export function addPlayerSuccess (player) {
   }
 }
 
+export function updatePlayersSuccess (playerId) {
+  return {
+    type: types.UPDATE_PLAYERS_SUCCESS,
+    playerId
+  }
+}
+
 export function deletePlayerSuccess (playerId) {
   return {
     type: types.DELETE_PLAYER_SUCCESS,

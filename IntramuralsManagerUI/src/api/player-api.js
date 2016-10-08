@@ -10,8 +10,17 @@ export function getPlayers () {
     })
 }
 
-export function addPlayer (player) {
-  return axios.post('http://localhost:3001/api/player', player)
+export function addPlayer (sex) {
+  return axios.post('http://localhost:3001/api/player', {firstName:'', lastName:'', sex: sex === 'Men' ? 'Male' : 'Female'})
+    .then(response => {
+      store.dispatch(addPlayerSuccess(response.data))
+      return response
+    })
+}
+
+export function updatePlayers (players) {
+  console.log(store)
+  return axios.post('http://localhost:3001/api/player', players)
     .then(response => {
       store.dispatch(addPlayerSuccess(response.data))
       return response
