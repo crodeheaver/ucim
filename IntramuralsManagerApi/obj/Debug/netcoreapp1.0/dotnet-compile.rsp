@@ -21,6 +21,7 @@
 --reference:C:\Users\Colby.Rodeheaver\.nuget\packages\Microsoft.AspNetCore.Authorization\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Authorization.dll
 --reference:C:\Users\Colby.Rodeheaver\.nuget\packages\Microsoft.AspNetCore.Cors\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Cors.dll
 --reference:C:\Users\Colby.Rodeheaver\.nuget\packages\Microsoft.AspNetCore.Cryptography.Internal\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Cryptography.Internal.dll
+--reference:C:\Users\Colby.Rodeheaver\.nuget\packages\Microsoft.AspNetCore.Cryptography.KeyDerivation\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 --reference:C:\Users\Colby.Rodeheaver\.nuget\packages\Microsoft.AspNetCore.DataProtection\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.DataProtection.dll
 --reference:C:\Users\Colby.Rodeheaver\.nuget\packages\Microsoft.AspNetCore.DataProtection.Abstractions\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 --reference:C:\Users\Colby.Rodeheaver\.nuget\packages\Microsoft.AspNetCore.Diagnostics.Abstractions\1.0.0\lib\netstandard1.0\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
@@ -194,6 +195,7 @@ C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Program
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Startup.cs
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\TokenProviderMiddleware.cs
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\TokenProviderOptions.cs
+C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Controllers\AuthController.cs
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Controllers\PlayerController.cs
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Models\IPlayerRepository.cs
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Models\IUserRepository.cs
@@ -202,3 +204,4 @@ C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Models\
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Models\User.cs
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Models\UserRepository.cs
 C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Mongo\MongoConnection.cs
+C:\Users\Colby.Rodeheaver\Documents\workspace\ucim\IntramuralsManagerApi\Utility\UserUtil.cs

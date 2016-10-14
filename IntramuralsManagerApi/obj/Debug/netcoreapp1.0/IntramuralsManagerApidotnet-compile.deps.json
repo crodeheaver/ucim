@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "3473edadd98e9c1c6dc6a9476445fb6a777950e7"
+    "signature": "225929ef5726d12fc5e0fe03431ede97b05994ba"
   },
   "compilationOptions": {
     "defines": [
@@ -30,7 +30,8 @@
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "MongoDB.Driver": "2.3.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "1.0.0",
-          "Microsoft.ApplicationInsights.AspNetCore": "1.0.1"
+          "Microsoft.ApplicationInsights.AspNetCore": "1.0.1",
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0"
         },
         "compile": {
           "IntramuralsManagerApi.dll": {}
@@ -161,6 +162,17 @@
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "1.0.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Security.Cryptography.Algorithms": "4.2.0",
+          "System.Text.Encoding.Extensions": "4.0.11"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
         }
       },
       "Microsoft.AspNetCore.DataProtection/1.0.0": {
@@ -2785,7 +2797,8 @@
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
           "MongoDB.Driver": "2.3.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "1.0.0",
-          "Microsoft.ApplicationInsights.AspNetCore": "1.0.1"
+          "Microsoft.ApplicationInsights.AspNetCore": "1.0.1",
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0"
         },
         "runtime": {
           "IntramuralsManagerApi.dll": {}
@@ -2916,6 +2929,17 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "1.0.0",
+          "System.Runtime.Extensions": "4.1.0",
+          "System.Security.Cryptography.Algorithms": "4.2.0",
+          "System.Text.Encoding.Extensions": "4.0.11"
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
         }
       },
       "Microsoft.AspNetCore.DataProtection/1.0.0": {
@@ -5449,6 +5473,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-0btvxwOqYNpKTUQrD7LA3p6Wi0vrhfWGBVqIKPS1KtEdkCv3QoVgFO4eJYuClGDS9NXhqk7TWh46/8x8wtZHaw=="
+    },
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OUBTk5RS7b3+Q9Z7F1jAL9JzdWlkITNpUw8EO5Yu1sP4Rq2jaidXKLiEw7oKFbD1Wmcee2s+U/UyHQfy/og7Sw=="
     },
     "Microsoft.AspNetCore.DataProtection/1.0.0": {
       "type": "package",

@@ -19,6 +19,8 @@ namespace IntramuralsManagerApi.Models
 
         public void Add(User user)
         {
+            user.Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString();
+            
             _users.InsertOne(user);
             return;
         }

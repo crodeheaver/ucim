@@ -7,10 +7,10 @@ namespace IntramuralsManagerApi.Models
 {
     public interface IUserRepository
     {
-        void Add(User player);
+        void Add(User user);
         IEnumerable<User> GetAll();
         User Find(string Id);
         bool Remove(string Id);
-        void Update(User player);
+        void Update(User user);
     }
 }

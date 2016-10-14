@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using IntramuralsManagerApi.Models;
 using Microsoft.Extensions.Options;
+using IntramuralsManagerApi.Utility;
 
 namespace IntramuralsManagerApi
 {
@@ -36,13 +37,12 @@ namespace IntramuralsManagerApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddApplicationInsightsTelemetry(Configuration);
-
             services.AddMvc();
 
             services.AddCors();
 
             services.AddSingleton<IPlayerRepository, PlayerRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -50,10 +50,6 @@ namespace IntramuralsManagerApi
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
-            app.UseApplicationInsightsRequestTelemetry();
-
-            app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseCors(builder => builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
 
@@ -86,12 +82,14 @@ namespace IntramuralsManagerApi
             //var signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey));
             var options = new TokenProviderOptions
             {
-                Audience = "ExampleAudience",
-                Issuer = "ExampleIssuer",
+                Audience = "IntramuralsManagerUI",
+                Issuer = "IntramuralsManagerApi",
                 SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256),
             };
 
-            app.UseMiddleware<TokenProviderMiddleware>(Options.Create(options));
+            UserUtil.options = Options.Create(options).Value;
+
+            app.UseMiddleware<TokenProviderMiddleware>();
 
             app.UseMvc();
         }

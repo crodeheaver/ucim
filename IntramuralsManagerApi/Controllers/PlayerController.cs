@@ -8,7 +8,7 @@ using System;
 
 namespace IntramuralsManagerApi.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     public class PlayerController : Controller
     {

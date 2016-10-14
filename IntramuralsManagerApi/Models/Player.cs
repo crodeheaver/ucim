@@ -1,7 +1,4 @@
-﻿
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.Options;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
 
 namespace IntramuralsManagerApi.Models

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using Newtonsoft.Json;
+using IntramuralsManagerApi.Models;
+using IntramuralsManagerApi.Utility;
 
 namespace IntramuralsManagerApi
 {
@@ -15,20 +14,19 @@ namespace IntramuralsManagerApi
     public class TokenProviderMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly TokenProviderOptions _options;
+        private UserRepository Users;
 
         public TokenProviderMiddleware(
-            RequestDelegate next,
-            IOptions<TokenProviderOptions> options)
+            RequestDelegate next)
         {
             _next = next;
-            _options = options.Value;
+            Users = new UserRepository();
         }
 
         public Task Invoke(HttpContext context)
         {
             // If the request path doesn't match, skip
-            if (!context.Request.Path.Equals(_options.Path, StringComparison.Ordinal))
+            if (!context.Request.Path.Equals(UserUtil.options.Path, StringComparison.Ordinal))
             {
                 return _next(context);
             }
@@ -60,43 +58,29 @@ namespace IntramuralsManagerApi
 
             // Specifically add the jti (random nonce), iat (issued timestamp), and sub (subject/user) claims.
             // You can add other claims here, if you want:
-            var claims = new Claim[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, username),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Iat, now.ToUniversalTime().ToString(), ClaimValueTypes.Integer64)
-            };
 
-            // Create the JWT and write it to a string
-            var jwt = new JwtSecurityToken(
-                issuer: _options.Issuer,
-                audience: _options.Audience,
-                claims: claims,
-                notBefore: now,
-                expires: now.Add(_options.Expiration),
-                signingCredentials: _options.SigningCredentials);
-            var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-
-            var response = new
-            {
-                access_token = encodedJwt,
-                expires_in = (int)_options.Expiration.TotalSeconds
-            };
-
+            string response = UserUtil.GenerateJwt(username);
             // Serialize and return the response
             context.Response.ContentType = "application/json";
-            await context.Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+            await context.Response.WriteAsync(response);
         }
 
         private Task<ClaimsIdentity> GetIdentity(string username, string password)
         {
-            // DON'T do this in production, obviously!
-            if (username == "TEST" && password == "TEST123")
+            try
             {
-                return Task.FromResult(new ClaimsIdentity(new System.Security.Principal.GenericIdentity(username, "Token"), new Claim[] { }));
+                User user = Users.FindByUsername(username);
+                if (user != null)
+                {
+                    string hashPass = UserUtil.HashPassword(password, user.salt);
+                    if (user.password == hashPass)
+                    {
+                        return Task.FromResult(new ClaimsIdentity(new System.Security.Principal.GenericIdentity(username, "Token"), new Claim[] { }));
+                    }
+                }
             }
+            catch (Exception ex) { }
 
-            // Credentials are invalid, or account doesn't exist
             return Task.FromResult<ClaimsIdentity>(null);
         }
     }

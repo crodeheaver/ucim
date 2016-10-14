@@ -8,7 +8,7 @@ namespace IntramuralsManagerApi
 {
     public class TokenProviderOptions
     {
-        public string Path { get; set; } = "/login";
+        public string Path { get; set; } = "/api/auth/login";
 
         public string Issuer { get; set; }
 
