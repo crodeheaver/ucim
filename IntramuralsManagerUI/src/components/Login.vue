@@ -37,7 +37,7 @@ import store from '../store'
 export default {
   data () {
     return {
-      email: 'test',
+      email: '',
       password: ''
     }
   },

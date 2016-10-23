@@ -1,5 +1,6 @@
 import router from '../../routes'
-import axios from 'axios'
+import { baseURL, toFormData } from './fetch-config'
+import 'whatwg-fetch'
 
 const state = {
   user: {
@@ -8,11 +9,12 @@ const state = {
 }
 
 const actions = {
-  login (email, password) {
-    axios.post('/auth/login', {
-      email: email,
-      password: password
-    })
+  login (username, password) {
+    fetch(baseURL + '/auth/login',
+      {
+        method: 'POST',
+        body: toFormData({username, password})
+      })
     .then(function (response) {
       localStorage.setItem('token', response.data.token)
 

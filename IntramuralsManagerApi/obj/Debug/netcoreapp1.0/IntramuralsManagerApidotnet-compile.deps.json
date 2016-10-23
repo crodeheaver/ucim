@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0/",
-    "signature": "225929ef5726d12fc5e0fe03431ede97b05994ba"
+    "signature": "58f2c57d96925b962ad2538cb2888fd2e6672f6e"
   },
   "compilationOptions": {
     "defines": [
@@ -28,22 +28,20 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "MongoDB.Driver": "2.3.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "1.0.0",
-          "Microsoft.ApplicationInsights.AspNetCore": "1.0.1",
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0"
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0",
+          "MongoDB.Driver": "2.4.0-beta1",
+          "Microsoft.ApplicationInsights.AspNetCore": "1.0.2"
         },
         "compile": {
           "IntramuralsManagerApi.dll": {}
         }
       },
-      "Desktop.Analyzers/1.2.0-beta2": {},
       "Libuv/1.9.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1"
         }
       },
-      "Microsoft.ApiDesignGuidelines.Analyzers/1.2.0-beta2": {},
       "Microsoft.ApplicationInsights/2.1.0": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -70,27 +68,16 @@
           "lib/dotnet5.4/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.AspNetCore/1.0.1": {
+      "Microsoft.ApplicationInsights.AspNetCore/1.0.2": {
         "dependencies": {
-          "Desktop.Analyzers": "1.2.0-beta2",
-          "Microsoft.ApiDesignGuidelines.Analyzers": "1.2.0-beta2",
           "Microsoft.ApplicationInsights": "2.1.0",
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.1",
-          "Microsoft.CodeAnalysis.Analyzers": "1.2.0-beta2",
-          "Microsoft.Composition.Analyzers": "1.2.0-beta2",
           "Microsoft.Extensions.Configuration": "1.0.0",
           "Microsoft.Extensions.DiagnosticAdapter": "1.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
-          "Microsoft.Maintainability.Analyzers": "1.2.0-beta2",
-          "Microsoft.QualityGuidelines.Analyzers": "1.2.0-beta2",
-          "Roslyn.Diagnostics.Analyzers": "1.2.0-beta2",
-          "System.Collections.Immutable.Analyzers": "1.2.0-beta2",
-          "System.Net.NameResolution": "4.0.0",
-          "System.Runtime.Analyzers": "1.2.0-beta2",
-          "System.Runtime.InteropServices.Analyzers": "1.2.0-beta2",
-          "System.Threading.Tasks.Analyzers": "1.2.0-beta2"
+          "System.Net.NameResolution": "4.0.0"
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.ApplicationInsights.AspNetCore.dll": {}
@@ -627,10 +614,10 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.2.0-beta2": {},
+      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {},
       "Microsoft.CodeAnalysis.Common/1.3.0": {
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.2.0-beta2",
+          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
           "System.AppContext": "4.1.0",
           "System.Collections": "4.0.11",
           "System.Collections.Concurrent": "4.0.12",
@@ -687,7 +674,6 @@
           "Microsoft.CodeAnalysis.Common": "1.3.0"
         }
       },
-      "Microsoft.Composition.Analyzers/1.2.0-beta2": {},
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -1117,7 +1103,6 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll": {}
         }
       },
-      "Microsoft.Maintainability.Analyzers/1.2.0-beta2": {},
       "Microsoft.Net.Http.Headers/1.0.0": {
         "dependencies": {
           "System.Buffers": "4.0.0",
@@ -1199,7 +1184,6 @@
       },
       "Microsoft.NETCore.Targets/1.0.1": {},
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {},
-      "Microsoft.QualityGuidelines.Analyzers/1.2.0-beta2": {},
       "Microsoft.VisualBasic/10.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -1248,7 +1232,7 @@
           "ref/netstandard1.3/Microsoft.Win32.Registry.dll": {}
         }
       },
-      "MongoDB.Bson/2.3.0": {
+      "MongoDB.Bson/2.4.0-beta1": {
         "dependencies": {
           "NETStandard.Library": "1.6.0",
           "System.Collections.NonGeneric": "4.0.1",
@@ -1260,10 +1244,10 @@
           "lib/netstandard1.5/MongoDB.Bson.dll": {}
         }
       },
-      "MongoDB.Driver/2.3.0": {
+      "MongoDB.Driver/2.4.0-beta1": {
         "dependencies": {
-          "MongoDB.Bson": "2.3.0",
-          "MongoDB.Driver.Core": "2.3.0",
+          "MongoDB.Bson": "2.4.0-beta1",
+          "MongoDB.Driver.Core": "2.4.0-beta1",
           "NETStandard.Library": "1.6.0",
           "System.Linq.Queryable": "4.0.1"
         },
@@ -1271,9 +1255,9 @@
           "lib/netstandard1.5/MongoDB.Driver.dll": {}
         }
       },
-      "MongoDB.Driver.Core/2.3.0": {
+      "MongoDB.Driver.Core/2.4.0-beta1": {
         "dependencies": {
-          "MongoDB.Bson": "2.3.0",
+          "MongoDB.Bson": "2.4.0-beta1",
           "NETStandard.Library": "1.6.0",
           "System.Collections.Specialized": "4.0.1",
           "System.Diagnostics.TraceSource": "4.0.0",
@@ -1362,7 +1346,6 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Roslyn.Diagnostics.Analyzers/1.2.0-beta2": {},
       "runtime.native.System/4.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -1455,7 +1438,6 @@
           "lib/netstandard1.0/System.Collections.Immutable.dll": {}
         }
       },
-      "System.Collections.Immutable.Analyzers/1.2.0-beta2": {},
       "System.Collections.NonGeneric/4.0.1": {
         "dependencies": {
           "System.Diagnostics.Debug": "4.0.11",
@@ -2259,7 +2241,6 @@
           "ref/netstandard1.5/System.Runtime.dll": {}
         }
       },
-      "System.Runtime.Analyzers/1.2.0-beta2": {},
       "System.Runtime.Extensions/4.1.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -2293,7 +2274,6 @@
           "ref/netstandard1.5/System.Runtime.InteropServices.dll": {}
         }
       },
-      "System.Runtime.InteropServices.Analyzers/1.2.0-beta2": {},
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -2627,7 +2607,6 @@
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
-      "System.Threading.Tasks.Analyzers/1.2.0-beta2": {},
       "System.Threading.Tasks.Dataflow/4.6.0": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -2795,22 +2774,20 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "MongoDB.Driver": "2.3.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "1.0.0",
-          "Microsoft.ApplicationInsights.AspNetCore": "1.0.1",
-          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0"
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "1.0.0",
+          "MongoDB.Driver": "2.4.0-beta1",
+          "Microsoft.ApplicationInsights.AspNetCore": "1.0.2"
         },
         "runtime": {
           "IntramuralsManagerApi.dll": {}
         }
       },
-      "Desktop.Analyzers/1.2.0-beta2": {},
       "Libuv/1.9.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1"
         }
       },
-      "Microsoft.ApiDesignGuidelines.Analyzers/1.2.0-beta2": {},
       "Microsoft.ApplicationInsights/2.1.0": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -2837,27 +2814,16 @@
           "lib/dotnet5.4/Microsoft.ApplicationInsights.dll": {}
         }
       },
-      "Microsoft.ApplicationInsights.AspNetCore/1.0.1": {
+      "Microsoft.ApplicationInsights.AspNetCore/1.0.2": {
         "dependencies": {
-          "Desktop.Analyzers": "1.2.0-beta2",
-          "Microsoft.ApiDesignGuidelines.Analyzers": "1.2.0-beta2",
           "Microsoft.ApplicationInsights": "2.1.0",
           "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.1",
-          "Microsoft.CodeAnalysis.Analyzers": "1.2.0-beta2",
-          "Microsoft.Composition.Analyzers": "1.2.0-beta2",
           "Microsoft.Extensions.Configuration": "1.0.0",
           "Microsoft.Extensions.DiagnosticAdapter": "1.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
-          "Microsoft.Maintainability.Analyzers": "1.2.0-beta2",
-          "Microsoft.QualityGuidelines.Analyzers": "1.2.0-beta2",
-          "Roslyn.Diagnostics.Analyzers": "1.2.0-beta2",
-          "System.Collections.Immutable.Analyzers": "1.2.0-beta2",
-          "System.Net.NameResolution": "4.0.0",
-          "System.Runtime.Analyzers": "1.2.0-beta2",
-          "System.Runtime.InteropServices.Analyzers": "1.2.0-beta2",
-          "System.Threading.Tasks.Analyzers": "1.2.0-beta2"
+          "System.Net.NameResolution": "4.0.0"
         },
         "runtime": {
           "lib/netstandard1.6/Microsoft.ApplicationInsights.AspNetCore.dll": {}
@@ -3394,10 +3360,10 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.CodeAnalysis.Analyzers/1.2.0-beta2": {},
+      "Microsoft.CodeAnalysis.Analyzers/1.1.0": {},
       "Microsoft.CodeAnalysis.Common/1.3.0": {
         "dependencies": {
-          "Microsoft.CodeAnalysis.Analyzers": "1.2.0-beta2",
+          "Microsoft.CodeAnalysis.Analyzers": "1.1.0",
           "System.AppContext": "4.1.0",
           "System.Collections": "4.0.11",
           "System.Collections.Concurrent": "4.0.12",
@@ -3454,7 +3420,6 @@
           "Microsoft.CodeAnalysis.Common": "1.3.0"
         }
       },
-      "Microsoft.Composition.Analyzers/1.2.0-beta2": {},
       "Microsoft.CSharp/4.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -3884,7 +3849,6 @@
           "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll": {}
         }
       },
-      "Microsoft.Maintainability.Analyzers/1.2.0-beta2": {},
       "Microsoft.Net.Http.Headers/1.0.0": {
         "dependencies": {
           "System.Buffers": "4.0.0",
@@ -3966,7 +3930,6 @@
       },
       "Microsoft.NETCore.Targets/1.0.1": {},
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {},
-      "Microsoft.QualityGuidelines.Analyzers/1.2.0-beta2": {},
       "Microsoft.VisualBasic/10.0.1": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -4006,7 +3969,7 @@
           "System.Runtime.InteropServices": "4.1.0"
         }
       },
-      "MongoDB.Bson/2.3.0": {
+      "MongoDB.Bson/2.4.0-beta1": {
         "dependencies": {
           "NETStandard.Library": "1.6.0",
           "System.Collections.NonGeneric": "4.0.1",
@@ -4018,10 +3981,10 @@
           "lib/netstandard1.5/MongoDB.Bson.dll": {}
         }
       },
-      "MongoDB.Driver/2.3.0": {
+      "MongoDB.Driver/2.4.0-beta1": {
         "dependencies": {
-          "MongoDB.Bson": "2.3.0",
-          "MongoDB.Driver.Core": "2.3.0",
+          "MongoDB.Bson": "2.4.0-beta1",
+          "MongoDB.Driver.Core": "2.4.0-beta1",
           "NETStandard.Library": "1.6.0",
           "System.Linq.Queryable": "4.0.1"
         },
@@ -4029,9 +3992,9 @@
           "lib/netstandard1.5/MongoDB.Driver.dll": {}
         }
       },
-      "MongoDB.Driver.Core/2.3.0": {
+      "MongoDB.Driver.Core/2.4.0-beta1": {
         "dependencies": {
-          "MongoDB.Bson": "2.3.0",
+          "MongoDB.Bson": "2.4.0-beta1",
           "NETStandard.Library": "1.6.0",
           "System.Collections.Specialized": "4.0.1",
           "System.Diagnostics.TraceSource": "4.0.0",
@@ -4120,7 +4083,6 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Roslyn.Diagnostics.Analyzers/1.2.0-beta2": {},
       "runtime.native.System/4.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -4210,7 +4172,6 @@
           "lib/netstandard1.0/System.Collections.Immutable.dll": {}
         }
       },
-      "System.Collections.Immutable.Analyzers/1.2.0-beta2": {},
       "System.Collections.NonGeneric/4.0.1": {
         "dependencies": {
           "System.Diagnostics.Debug": "4.0.11",
@@ -4927,7 +4888,6 @@
           "Microsoft.NETCore.Targets": "1.0.1"
         }
       },
-      "System.Runtime.Analyzers/1.2.0-beta2": {},
       "System.Runtime.Extensions/4.1.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -4952,7 +4912,6 @@
           "System.Runtime.Handles": "4.0.1"
         }
       },
-      "System.Runtime.InteropServices.Analyzers/1.2.0-beta2": {},
       "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.0.1",
@@ -5256,7 +5215,6 @@
           "System.Runtime": "4.1.0"
         }
       },
-      "System.Threading.Tasks.Analyzers/1.2.0-beta2": {},
       "System.Threading.Tasks.Dataflow/4.6.0": {
         "dependencies": {
           "System.Collections": "4.0.11",
@@ -5419,30 +5377,20 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Desktop.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-casK1/J2ZJ6X45hRaEwRWq/n7cjnAJCf31G6DsFQYIeE0aunDEnoO2xY2fO3gni7BgVfetWihLZa7ucymMRJDQ=="
-    },
     "Libuv/1.9.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-9Q7AaqtQhS8JDSIvRBt6ODSLWDBI4c8YxNxyCQemWebBFUtBbc6M5Vi5Gz1ZyIUlTW3rZK9bIr5gnVyv0z7a2Q=="
-    },
-    "Microsoft.ApiDesignGuidelines.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+69CcmkDq7y1eRmaFiIU0j8AzOQ5XwkhEc7r1mZ6sthKS/iuatyMNpbSPiWUjHxfb7M790iARa8OF3ie6QASLw=="
     },
     "Microsoft.ApplicationInsights/2.1.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-mviO8PLQd3r22Pmv8JfjYzTCQ9ByhkU9wdC4fwd6WmAARwAMgMw9HEbHeYS3r+8pB3w+fZMi7p4LKijzgNybRQ=="
     },
-    "Microsoft.ApplicationInsights.AspNetCore/1.0.1": {
+    "Microsoft.ApplicationInsights.AspNetCore/1.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CEWe0ZKJMvfzH5oh++/fhjgf4jmDIOnVF/+BhrDy1cKjh3a39GCEWEog+c8NitlGc24155SORLKCMEkZwYiM8A=="
+      "sha512": "sha512-2pe22FuypQRT5YNd4cIehYqDduxiQzt1o/585LgG6vJmOfuX7aF2h4uSI5epRrvu1EikuoZEzBchAR6U8cBybQ=="
     },
     "Microsoft.AspNetCore.Antiforgery/1.0.1": {
       "type": "package",
@@ -5644,10 +5592,10 @@
       "serviceable": true,
       "sha512": "sha512-D0licSnS1JgqQ/gYlN41wXbeYG3dFIdjY781YzMHZ5gBB7kczacshW+H6plZkXRr/cCnAJWGa31o1R8c5GEy/A=="
     },
-    "Microsoft.CodeAnalysis.Analyzers/1.2.0-beta2": {
+    "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CIrL5rFuYb5sUEykf3KOH6Ch5mZ4Q0JFJctPb3Fif9LPWk8TnVMhIxD1dpRza/xsvM5tItv1GGXrx87Ww2lYwQ=="
+      "sha512": "sha512-HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg=="
     },
     "Microsoft.CodeAnalysis.Common/1.3.0": {
       "type": "package",
@@ -5663,11 +5611,6 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Sf3k8PkTkWqBmXnnblJbvb7ewO6mJzX6WO2t7m04BmOY5qBq6yhhyXnn/BMM+QCec3Arw3X35Zd8f9eBql0qgg=="
-    },
-    "Microsoft.Composition.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hjkaFFXQBFrup4H+awqGKE7B+xnUiNWj9dVJNOd2AXzttRrERGwnU5Ch41XmOjqnhONRT8B0p/eMtXSrJreHXA=="
     },
     "Microsoft.CSharp/4.0.1": {
       "type": "package",
@@ -5844,11 +5787,6 @@
       "serviceable": true,
       "sha512": "sha512-VwNw+fm2nlbkL3GRO8b6WBlqs6M4q9Dft0CAg0TMHUYwuiU+4dciiIlZRC6q/HEcllKUvc0KDXt20n2PGcO1pA=="
     },
-    "Microsoft.Maintainability.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-rNP/OQQN1UXAqumbwkf57zL69leFfqEbfuaMOvmHu5438ugXmCvY4pA1qXeFBTq4uk5/HqFSr+1j7joauwHouw=="
-    },
     "Microsoft.Net.Http.Headers/1.0.0": {
       "type": "package",
       "serviceable": true,
@@ -5899,11 +5837,6 @@
       "serviceable": true,
       "sha512": "sha512-SaToCvvsGMxTgtLv/BrFQ5IFMPRE1zpWbnqbpwykJa8W5XiX82CXI6K2o7yf5xS7EP6t/JzFLV0SIDuWpvBZVw=="
     },
-    "Microsoft.QualityGuidelines.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VC9X9Q1oZQmCVAjbISYVidE08QctdSE4khfgqoWDnZ18DBdgqoDRXuh6bP7lkLwWLbFG8PgWScrfqjFKabyQng=="
-    },
     "Microsoft.VisualBasic/10.0.1": {
       "type": "package",
       "serviceable": true,
@@ -5919,20 +5852,20 @@
       "serviceable": true,
       "sha512": "sha512-q+eLtROUAQ3OxYA5mpQrgyFgzLQxIyrfT2eLpYX5IEPlHmIio2nh4F5bgOaQoGOV865kFKZZso9Oq9RlazvXtg=="
     },
-    "MongoDB.Bson/2.3.0": {
+    "MongoDB.Bson/2.4.0-beta1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ImZ8Dstc+ZUxEqgIXJtFuL2+sesc+e0SwF68Wh8P3gSYLyWRL3hacNNgmE9iUgxUyYzVg4Sr55aRsHkHw9IaDw=="
+      "sha512": "sha512-ZVnPi+gRSrX8QMfXVGPSZmo5CNJL059IeNnZ0GCKE63KKiaJpgQhMU2Lqm7Xj1I+EhBdb/kPv5Y0Hy6dS2nI7w=="
     },
-    "MongoDB.Driver/2.3.0": {
+    "MongoDB.Driver/2.4.0-beta1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wq4rHgUorkGMn66TNQ4kDlh/u1DihK4bB+LdLgklP6Z7tpq3Y5It25daKrq6zcoLheCoBqhjBsKHUzrfG0KUfQ=="
+      "sha512": "sha512-DfH79vnqJPmAXsVQa4QDUIJYdiMNlXIcZ8j5PASdahw1oVURcHZQlDT3XrgFgCwOPYA11DsW9ZYshVmXxZg/zw=="
     },
-    "MongoDB.Driver.Core/2.3.0": {
+    "MongoDB.Driver.Core/2.4.0-beta1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CaMUxfkDkTnRR5iQ/tlVRYtJyoUAl0ToSj9/fWfQb/GYt8veQzSqu6jOLE1+KT+2HMvL6kIhX08tam+xU+iycQ=="
+      "sha512": "sha512-6TA9uZrk2y4ObTYYgUJIDU7FCy70b2t0gmsZHChQI3HI2WTN+bCUKA3bobvNayQTNpoBCF0H8aL0APtRabdMMg=="
     },
     "NETStandard.Library/1.6.0": {
       "type": "package",
@@ -5943,11 +5876,6 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw=="
-    },
-    "Roslyn.Diagnostics.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-dF5eBU4QJyFi4ev5payIgyQs1hY7Kr9nMzXzIpMwtJAPVJD9BrBWkFBgov9EQAa+WR+d1VDbC+gpr+n2Jg9dzg=="
     },
     "runtime.native.System/4.0.0": {
       "type": "package",
@@ -5998,11 +5926,6 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Cma8cBW6di16ZLibL8LYQ+cLjGzoKxpOTu/faZfDcx94ZjAGq6Nv5RO7+T1YZXqEXTZP9rt1wLVEONVpURtUqw=="
-    },
-    "System.Collections.Immutable.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-5gmhLS5W9CR92y3z5C5X5b1MoK40MtUM+GqLprPPmcmMfSz4G9ZXMqPSJCBya+dkIhLzUaY+firbTauzTWYybA=="
     },
     "System.Collections.NonGeneric/4.0.1": {
       "type": "package",
@@ -6279,11 +6202,6 @@
       "serviceable": true,
       "sha512": "sha512-v6c/4Yaa9uWsq+JMhnOFewrYkgdNHNG2eMKuNqRn8P733rNXeRCGvV5FkkjBXn2dbVkPXOsO0xjsEeM1q2zC0g=="
     },
-    "System.Runtime.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-JTCqwcOIn4xpSTtKwaN2AyEP5+Ogll+5LTU9EJufIO5wDd3yBqvIJdb90+R+fo4siMNGrNwfPKFQJ13SGKIH6g=="
-    },
     "System.Runtime.Extensions/4.1.0": {
       "type": "package",
       "serviceable": true,
@@ -6298,11 +6216,6 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-16eu3kjHS633yYdkjwShDHZLRNMKVi/s0bY8ODiqJ2RfMhDMAwxZaUaWVnZ2P71kr/or+X9o/xFWtNqz8ivieQ=="
-    },
-    "System.Runtime.InteropServices.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LasP+trmAAO7bLx22y/mEI+eb8SHHz0J3uQKQZtsSdAQfYd3O2f/pNRcl0Q3O2lH5VESnH3rztgnZF1/i2h13A=="
     },
     "System.Runtime.InteropServices.RuntimeInformation/4.0.0": {
       "type": "package",
@@ -6418,11 +6331,6 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-k1S4Gc6IGwtHGT8188RSeGaX86Qw/wnrgNLshJvsdNUOPP9etMmo8S07c+UlOAx4K/xLuN9ivA1bD0LVurtIxQ=="
-    },
-    "System.Threading.Tasks.Analyzers/1.2.0-beta2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qMhOP85bLfsI6HWuWFRuhxGpDcr4thaNB2NfEhPsgT2NgQm9io+nITkGRddsbB2bBtjSknYd86OqTFWDIKJa7A=="
     },
     "System.Threading.Tasks.Dataflow/4.6.0": {
       "type": "package",

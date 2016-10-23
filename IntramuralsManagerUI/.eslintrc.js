@@ -11,7 +11,10 @@ module.exports = {
     'html'
   ],
   'globals': {
-    'localStorage': true
+    'localStorage': true,
+    'Headers': true,
+    'fetch': true,
+    'FormData': true
   },
   // add your custom rules here
   'rules': {
