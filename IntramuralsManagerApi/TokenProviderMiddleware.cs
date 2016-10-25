@@ -79,7 +79,9 @@ namespace IntramuralsManagerApi
                     }
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                
+             }
 
             return Task.FromResult<ClaimsIdentity>(null);
         }

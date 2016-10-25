@@ -2,24 +2,26 @@ import * as types from '../mutation-types'
 
 // initial state
 const state = {
-  players: []
+  all: []
 }
 
 // mutations
 const mutations = {
+  [types.RECEIVE_PRODUCTS] (state, { products }) {
+    state.all = products
+  },
 
+  [types.ADD_TO_CART] (state, { id }) {
+    state.all.find(p => p.id === id).inventory--
+  }
 }
 
 const actions = {
 
 }
 
-const getters = {
-
-}
-
 export default {
+  actions,
   state,
-  mutations,
-  getters
+  mutations
 }

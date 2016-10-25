@@ -1,32 +1,47 @@
-import router from '../../routes'
-import { baseURL, toFormData } from './fetch-config'
-import 'whatwg-fetch'
+import * as types from '../mutation-types'
 
+// initial state
 const state = {
   user: {
-    authenticated: false
+    isAuthenticated: false
+  }
+}
+
+// mutations
+const mutations = {
+  [types.LOGIN] (state, { products }) {
+    state.all = products
+  },
+
+  [types.REGISTER] (state, { id }) {
+    state.all.find(p => p.id === id).inventory--
   }
 }
 
 const actions = {
-  login (username, password) {
-    fetch(baseURL + '/auth/login',
-      {
-        method: 'POST',
-        body: toFormData({username, password})
-      })
-    .then(function (response) {
-      localStorage.setItem('token', response.data.token)
 
-      state.authenticated = true
-      router.go('players')
-    })
-    .catch(function (error) {
-      console.log(error)
-    })
-  }
 }
 
 export default {
-  actions
+  actions,
+  state,
+  mutations
 }
+
+
+//login (username, password) {
+//    fetch(baseURL + '/auth/login',
+//      {
+//        method: 'POST',
+//        body: toFormData({username, password})
+//      })
+//    .then(function (response) {
+//      localStorage.setItem('token', response.access_token)
+
+//      state.authenticated = true
+//      router.push('players')
+//    })
+//    .catch(function (error) {
+//      console.log(error)
+//    })
+//  }

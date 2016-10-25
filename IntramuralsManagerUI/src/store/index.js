@@ -1,11 +1,15 @@
-import Auth from './modules/auth'
-import _ from 'lodash'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-export default {
-  debug: process.env.NODE_ENV !== 'production',
-  state: {
-    players: [],
-    teams: []
+Vue.use(Vuex)
+
+const debug = process.env.NODE_ENV !== 'production'
+
+export default new Vuex.Store({
+  modules: {
+    cart,
+    products
   },
-  actions: _.merge({}, Auth.actions)
-}
+  strict: debug,
+  plugins: debug ? [createLogger()] : []
+})
