@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import store from '../store'
+// import store from '../store'
 export default {
   data () {
     return {
@@ -42,8 +42,8 @@ export default {
     }
   },
   methods: {
-    submit: function (event) {
-      store.actions.login(this.email, this.password)
+    submit (event) {
+      this.$store.dispatch('login', this, { email: this.email, password: this.password })
     }
   }
 }

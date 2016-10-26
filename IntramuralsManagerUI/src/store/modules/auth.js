@@ -1,3 +1,4 @@
+import { BASE_URL, toFormData, POST_HEADERS } from './config'
 import * as types from '../mutation-types'
 
 // initial state
@@ -9,27 +10,30 @@ const state = {
 
 // mutations
 const mutations = {
-  [types.LOGIN] (state, { products }) {
-    state.all = products
-  },
-
-  [types.REGISTER] (state, { id }) {
-    state.all.find(p => p.id === id).inventory--
+  [types.LOGIN] () {
+    state.user.isAuthenticated = true
   }
 }
 
 const actions = {
-
+  login (context, user) {
+    context.$http.post(BASE_URL + '/api/auth/login', toFormData(user), POST_HEADERS)
+    .then((response) => {
+      localStorage.setItem('token', response.access_token)
+      context.$store.commit(types.LOGIN)
+    }, (response) => {
+      console.log(response)
+    })
+  }
 }
 
-export default {
-  actions,
+export {
   state,
-  mutations
+  mutations,
+  actions
 }
 
-
-//login (username, password) {
+// login (username, password) {
 //    fetch(baseURL + '/auth/login',
 //      {
 //        method: 'POST',
