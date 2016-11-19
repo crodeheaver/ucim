@@ -79,7 +79,7 @@ namespace IntramuralsManagerApi
                     }
                 }
             }
-            catch (Exception ex) {
+            catch {
                 
              }
 

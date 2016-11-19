@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/36b5f7e573e80e6632abf6dd442de4a117d8101e/ora/ora.d.ts",
+    "raw": "registry:dt/ora#0.3.0+20161017160033",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/36b5f7e573e80e6632abf6dd442de4a117d8101e/ora/ora.d.ts"
+  }
+}

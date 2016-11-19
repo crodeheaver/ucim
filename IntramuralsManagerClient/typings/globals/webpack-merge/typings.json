@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/9038485f53df7d3241fac74562aacfcee42b8857/webpack-merge/webpack-merge.d.ts",
+    "raw": "registry:dt/webpack-merge#0.0.0+20160802151635",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/9038485f53df7d3241fac74562aacfcee42b8857/webpack-merge/webpack-merge.d.ts"
+  }
+}
