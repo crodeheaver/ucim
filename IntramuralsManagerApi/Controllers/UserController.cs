@@ -10,89 +10,89 @@ namespace IntramuralsManagerApi.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
-    public class PlayerController : Controller
+    public class UserController : Controller
     {
-        public IPlayerRepository Players { get; set; }
-        public PlayerController(IPlayerRepository players)
+        public IUserRepository Users { get; set; }
+        public UserController(IUserRepository users)
         {
-            Players = players;
+            Users = users;
         }
         
         [HttpGet]
-        public IEnumerable<Player> GetAll()
+        public IEnumerable<User> GetAll()
         {  
-            return Players.GetAll();
+            return Users.GetAll();
         }
-        [HttpGet("{id}", Name = "GetPlayer")]
+        [HttpGet("{id}", Name = "GetUser")]
         public IActionResult GetById(string id)
         {
-            var player = Players.Find(id);
-            if (player == null)
+            var user = Users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
-            return new ObjectResult(player);
+            return new ObjectResult(user);
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Player player)
+        public IActionResult Create([FromBody] User user)
         {
-            if (player == null)
+            if (user == null)
             {
                 return BadRequest();
             }
-            Players.Add(player);
-            return CreatedAtRoute("GetPlayer", new { id = player.Id }, player);
+            Users.Add(user);
+            return CreatedAtRoute("GetPlayer", new { id = user.Id }, user);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(String id, [FromBody] Player player)
+        public IActionResult Update(String id, [FromBody] User user)
         {
-            if (player == null || player.Id != id)
+            if (user == null || user.Id != id)
             {
                 return BadRequest();
             }
 
-            var tPlayer = Players.Find(id.ToString());
-            if (tPlayer == null)
+            var tUser = Users.Find(id.ToString());
+            if (tUser == null)
             {
                 return NotFound();
             }
 
-            Players.Update(player);
+            Users.Update(user);
             return new NoContentResult();
         }
 
         [HttpPatch("{id}")]
-        public IActionResult Update([FromBody] Player player, string id)
+        public IActionResult Update([FromBody] User user, string id)
         {
-            if (player == null)
+            if (user == null)
             {
                 return BadRequest();
             }
 
-            var todo = Players.Find(id);
+            var todo = Users.Find(id);
             if (todo == null)
             {
                 return NotFound();
             }
 
-            player.Id = todo.Id;
+            user.Id = todo.Id;
 
-            Players.Update(player);
+            Users.Update(user);
             return new NoContentResult();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(string id)
         {
-            var player = Players.Find(id);
-            if (player == null)
+            var user = Users.Find(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            Players.Remove(id);
+            Users.Remove(id);
             return new NoContentResult();
         }
     }
