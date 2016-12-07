@@ -35,7 +35,6 @@ namespace IntramuralsManagerApi
 
             services.AddCors();
 
-            services.AddSingleton<IPlayerRepository, PlayerRepository>();
             services.AddSingleton<IUserRepository, UserRepository>();
         }
 

@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace IntramuralsManagerApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/api/[controller]")]
     public class AuthController : Controller
     {
         IUserRepository Users;
